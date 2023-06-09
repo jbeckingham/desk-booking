@@ -71,10 +71,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header textAlign="center" as="h1">
-        Moneyhub Desk Booking
-      </Header>
-      <Menu inverted color="teal">
+      <Menu inverted className="tealBackground">
         <Menu.Item
           name="book"
           active={activeTab === "book"}

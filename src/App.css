@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.loginButton {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -39,4 +39,22 @@
 
 body {
   font-family: Proxima Nova;
+}
+
+.loginButtonContainer {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.moneyhubLogo {
+  width: 500px;
+  margin: 15px;
+}
+
+.tealBackground {
+  background: #00b8c9 !important;
 }

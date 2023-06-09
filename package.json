@@ -11,6 +11,7 @@
     "moment": "^2.29.4",
     "ramda": "^0.29.0",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "semantic-ui-css": "^2.5.0",
