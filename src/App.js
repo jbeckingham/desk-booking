@@ -4,8 +4,8 @@ import moment from "moment"
 
 import {initializeApp} from "firebase/app"
 import {Menu, Header} from "semantic-ui-react"
-import Readme from "./readme"
-import History from "./history"
+import Readme from "./Readme"
+import History from "./History"
 import Book from "./book"
 import {range, map} from "ramda"
 
@@ -43,10 +43,7 @@ const App = () => {
     daysArray
   )
 
-  const q = query(
-    collection(db, "desks"),
-    where("date", ">=", Timestamp.fromDate(queryStart))
-  )
+  const q = query(collection(db, "desks"))
 
   useEffect(() => {
     onSnapshot(q, querySnapshot => {
@@ -60,7 +57,7 @@ const App = () => {
   }, [])
 
   const setBooking = async () => {
-    const result = await addDoc(collection(db, "bookings"), {
+    const result = await addDoc(collection(db, "desks"), {
       date: "110623",
       desk: "4",
       bookings: [{author: "Jen", name: "Hannah", timestamp: Date.now()}],
@@ -89,8 +86,8 @@ const App = () => {
         />
       </Menu>
       {activeTab === "readme" ? <Readme /> : null}
-      {activeTab === "history" ? <History /> : null}
-      {activeTab === "book" ? <Book days={days} /> : null}
+      {activeTab === "history" ? <History bookings={bookings} /> : null}
+      {activeTab === "book" ? <Book bookings={bookings} /> : null}
     </div>
   )
 }

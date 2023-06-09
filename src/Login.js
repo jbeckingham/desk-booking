@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <>
       <Container className="logoDiv" textAlign="center">
-        <img class="moneyhubLogo" src={logo} alt={"logo"} />
+        <img className="moneyhubLogo" src={logo} alt={"logo"} />
       </Container>
 
       {credential ? (

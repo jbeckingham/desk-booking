@@ -1,9 +1,10 @@
 import moment from "moment"
 import {Container} from "semantic-ui-react"
-const Book = ({days}) => {
+import DeskModel from "./DeskModel"
+const Book = ({bookings}) => {
   return (
     <Container textAlign="center">
-      <h1>Book</h1>
+      {/* <DeskModel bookings={bookings} /> */}
     </Container>
   )
 }
