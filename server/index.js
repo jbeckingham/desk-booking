@@ -1,9 +1,22 @@
-const {WebClient} = require("@slack/web-api")
+const express = require("express")
+const slackApi = require("./slack-api")
+const cors = require("cors")
 
-const TOKEN = "get token from slack and do no commit"
-const web = new WebClient(TOKEN)
-web.users.list().then((response) => {
-  const moneyhubUsers = response.members.filter((user) => !user.deleted && user.profile.email && user.profile.email.includes("moneyhub"))
-  console.log("?????????????????????????", moneyhubUsers.length)
+const app = express()
+
+app.use(cors({
+  origin: ["http://localhost:3000"],
+}))
+
+app.listen(3001, () => {
+  console.log("Desk booking server listening on port 3001")
+
+  app.get("/moneyhub-users", (req, res) => {
+    return slackApi.getMoneyhubUsers()
+    .then((users) => {
+
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>", users)
+      return res.json(users)
+    })
+  })
 })
-
