@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode"
 import "./App.css"
 import "semantic-ui-css/semantic.min.css"
 import {GoogleOAuthProvider} from "@react-oauth/google"
@@ -24,7 +25,8 @@ const Login = () => {
             <GoogleLogin
               onSuccess={credentialResponse => {
                 setCredential(credentialResponse.credential)
-                console.log(credentialResponse)
+                const profile = jwtDecode(credentialResponse.credential)
+                console.log("User credentials", profile.email, profile.name)
               }}
               onError={() => {
                 console.log("Login Failed")
