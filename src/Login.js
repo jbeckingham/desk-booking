@@ -18,7 +18,7 @@ const Login = () => {
 
   const [credential, setCredential] = useState(cookies.credential)
 
-  const profile = jwtDecode(credential)
+  const profile = credential ? jwtDecode(credential) : {}
 
   const onLoginSuccess = credentialResponse => {
     setCredential(credentialResponse.credential)
