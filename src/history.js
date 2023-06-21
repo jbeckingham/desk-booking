@@ -1,9 +1,9 @@
 import {Container, List} from "semantic-ui-react"
-import {sortBy, prop} from "ramda"
+import {sortBy, prop, reverse} from "ramda"
 import HistoryRow from "./HistoryRow"
 
 const History = ({bookings}) => {
-  const orderedBookings = sortBy(prop("lastUpdated"), bookings)
+  const orderedBookings = reverse(sortBy(prop("lastUpdated"), bookings))
   return (
     <>
       <Container>

@@ -4,13 +4,12 @@ import "./App.css"
 import "semantic-ui-css/semantic.min.css"
 import {GoogleOAuthProvider} from "@react-oauth/google"
 import App from "./App"
-import {Header, Container} from "semantic-ui-react"
+import {Container} from "semantic-ui-react"
 import moment from "moment"
 
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import {GoogleLogin} from "@react-oauth/google"
 import logo from "./moneyhub_teal.png"
-import {CookiesProvider} from "react-cookie"
 import {useCookies} from "react-cookie"
 
 const Login = () => {
@@ -32,7 +31,7 @@ const Login = () => {
       </Container>
 
       {credential ? (
-        <App />
+        <App user={profile} />
       ) : (
         <div class="loginButtonContainer">
           <GoogleOAuthProvider clientId="1073576890488-7qnqolkv12d7mkrpsfdu1qo6dv2giogo.apps.googleusercontent.com">
